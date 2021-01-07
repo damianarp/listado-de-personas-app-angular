@@ -1,3 +1,4 @@
+import { Persona } from './persona.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'listado-personas';
+  titulo = 'Listado de Personas';
+  personas: Persona[] = [new Persona("Damian", "Arp"), new Persona("Gaston", "Arp")];
+  nombreInput: string;
+  apellidoInput: string;
+
+  onAgregarPersona(){
+    let persona1 = new Persona(this.nombreInput, this.apellidoInput);
+    this.personas.push(persona1);
+  }
 }
