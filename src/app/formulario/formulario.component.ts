@@ -8,16 +8,18 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
   @Output() personaCreada = new EventEmitter<Persona>();
-  nombreInput: string;
-  apellidoInput: string;
+
+  // Estas variables ya no se utilizan con local references porque ya estan pasadas en el método onAgregarPersona desde formulario.component.html y agregadas en el metodo que está mas abajo.
+  //nombreInput: string;
+  //apellidoInput: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onAgregarPersona(){
-    let persona1 = new Persona(this.nombreInput, this.apellidoInput);
+  onAgregarPersona(nombreInput: HTMLInputElement, apellidoInput: HTMLInputElement){ // Se utiliza HTMLInputElement ya que se ha utilizado local references en un elemento html.
+    let persona1 = new Persona(nombreInput.value, apellidoInput.value); // Accedemos al valor del elemento de tipo input con la propiedad value.
     this.personaCreada.emit(persona1);
   }
 
