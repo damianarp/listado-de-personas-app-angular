@@ -1,5 +1,5 @@
 import { Persona } from './../persona.model';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
@@ -13,13 +13,17 @@ export class FormularioComponent implements OnInit {
   //nombreInput: string;
   //apellidoInput: string;
 
+  // Por medio del decorador @ViewChild accedemos a las referencias locales del formulario.
+  @ViewChild('nombreInput') nombreInput: ElementRef;      // al usar @ViewChild tenemos que especificar el tipo de la variable como ElementRef.
+  @ViewChild('apellidoInput') apellidoInput: ElementRef;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onAgregarPersona(nombreInput: HTMLInputElement, apellidoInput: HTMLInputElement){ // Se utiliza HTMLInputElement ya que se ha utilizado local references en un elemento html.
-    let persona1 = new Persona(nombreInput.value, apellidoInput.value); // Accedemos al valor del elemento de tipo input con la propiedad value.
+  onAgregarPersona(){
+    let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value); // Al utilizar un Element Ref debemos acceder al elemento HTML por medio de nativeElement y posteriormente al valor del elemento.
     this.personaCreada.emit(persona1);
   }
 
