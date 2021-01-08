@@ -21,11 +21,9 @@
       </div>
    </form>
    <hr>
-   <div class="row">
-     <div class="col-xs-12">
-       <div *ngFor="let persona of personas; let i = index">
-          {{i+1}}: {{persona.nombre}} {{persona.apellido}}
-       </div>
-     </div>
-   </div>
+   <app-persona
+   *ngFor="let personaElemento of personas; let i = index"
+   [persona]="personaElemento"
+   [indice]="i"
+   ></app-persona>
 </div>
