@@ -29,7 +29,7 @@ export class FormularioComponent implements OnInit {
     let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value); // Al utilizar un Element Ref debemos acceder al elemento HTML por medio de nativeElement y posteriormente al valor del elemento.
 
     // Al utilizar los servicios, ya no es necesario emitir el evento personaCeada.
-    this.loggingService.enviaMensajeAConsola("Enviamos persona con nombre: " + persona1.nombre + " apellido: " + persona1.apellido);
+    //this.loggingService.enviaMensajeAConsola("Enviamos persona con nombre: " + persona1.nombre + " apellido: " + persona1.apellido);
     //this.personaCreada.emit(persona1);
 
     // Llamamos al método agregarPersona
