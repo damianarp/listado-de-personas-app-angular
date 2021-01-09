@@ -20,7 +20,11 @@ export class FormularioComponent implements OnInit {
   @ViewChild('apellidoInput') apellidoInput: ElementRef;
 
   constructor(private loggingService: LoggingService,              // Inyectamos el servicio a traves del constructor utilizando el concepto de Dependency Injection
-              private personasService: PersonasService) {}
+              private personasService: PersonasService) {
+                this.personasService.saludar.subscribe( //Se emite el saludo, nos suscribimos a la emisión del mensaje, recibimos el indice y mandamos un alerta donde indicamos cuál es el indice que se ha seleccionado.
+                  (indice: number) => alert("El indice es: " + indice)
+                );
+              }
 
   ngOnInit(): void {
   }
