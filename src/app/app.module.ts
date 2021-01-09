@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PersonaComponent } from './persona/persona.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { LoggingService } from './LoggingService.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { FormularioComponent } from './formulario/formulario.component';
   imports: [
     BrowserModule, FormsModule
   ],
-  providers: [],
+  providers: [LoggingService], // Se debe agregar el proveedor en el componente padre para poder utilizar el servicio en los componentes hijos sin necesidad de crearlo para cada uno de ellos.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
