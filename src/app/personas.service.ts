@@ -5,8 +5,8 @@ import { Persona } from "./persona.model";
 @Injectable() // Se utiliza para inyectar un servicio (LoggingService) dentro de otro (PersonasService)
 
 export class PersonasService {
-  personas: Persona[] = [new Persona("Damian", "Arp"),
-                         new Persona("Gaston", "Arp")];
+  personas: Persona[] = [new Persona("Damián", "Arp"),
+                         new Persona("Gastón", "Arp")];
 
 
   saludar = new EventEmitter<number>(); // Configuramos el emisor
