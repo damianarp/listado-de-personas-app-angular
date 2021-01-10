@@ -1,7 +1,7 @@
-import { PersonasService } from './../personas.service';
-import { Persona } from './../persona.model';
+import { PersonasService } from '../../personas.service';
+import { Persona } from '../../persona.model';
 import { Component, OnInit } from '@angular/core';
-import { LoggingService } from './../LoggingService.service';
+import { LoggingService } from '../../LoggingService.service';
 
 @Component({
   selector: 'app-formulario',
